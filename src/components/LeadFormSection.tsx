@@ -82,10 +82,11 @@ const LeadFormSection = () => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            disabled={loading}
+            className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60"
           >
             <Send className="w-5 h-5" />
-            Quero meu orçamento
+            {loading ? "Enviando..." : "Quero meu orçamento"}
           </button>
         </form>
       </div>
