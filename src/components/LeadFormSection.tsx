@@ -18,11 +18,25 @@ const LeadFormSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    // In production, this would send to an API/email
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { error } = await supabase.from('leads').insert({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Erro ao enviar lead:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
