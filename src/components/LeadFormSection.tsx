@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Send, CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadFormSection = () => {
   const ref = useScrollReveal();
@@ -17,11 +18,25 @@ const LeadFormSection = () => {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    // In production, this would send to an API/email
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { error } = await supabase.from('leads').insert({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Erro ao enviar lead:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -67,10 +82,11 @@ const LeadFormSection = () => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            disabled={loading}
+            className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60"
           >
             <Send className="w-5 h-5" />
-            Quero meu orçamento
+            {loading ? "Enviando..." : "Quero meu orçamento"}
           </button>
         </form>
       </div>
