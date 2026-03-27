@@ -18,7 +18,7 @@ const CTASection = () => {
           Fale com um dos nossos especialistas e descubra o destino perfeito para você.
         </p>
         <a
-          href="https://wa.me/5500000000001"
+          href="https://wa.me/5527995907759"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-gradient-gold text-primary-foreground px-10 py-5 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity shadow-xl shadow-primary/20"

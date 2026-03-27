@@ -36,7 +36,7 @@ const DestinationsSection = () => {
                   <h3 className="font-display text-2xl font-bold mb-1">{d.name}</h3>
                   <p className="text-foreground/70 text-sm mb-4">{d.subtitle}</p>
                   <a
-                    href="https://wa.me/5500000000001"
+                    href="https://wa.me/5527995907759"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-gradient-gold text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500"

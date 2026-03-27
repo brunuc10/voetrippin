@@ -21,7 +21,7 @@ const HeroSection = () => (
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "0.7s" }}>
         <a
-          href="https://wa.me/5500000000001"
+          href="https://wa.me/5527995907759"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/20"
