@@ -1,9 +1,9 @@
 import { MessageCircle, Instagram, MapPin } from "lucide-react";
 
 const WHATSAPP_NUMBERS = [
-  { label: "Atendimento 1", number: "5500000000001" },
-  { label: "Atendimento 2", number: "5500000000002" },
-  { label: "Atendimento 3", number: "5500000000003" },
+  { label: "Atendimento 1", number: "5527995907759" },
+  { label: "Atendimento 2", number: "5527999257759" },
+  { label: "Atendimento 3", number: "5527997447759" },
 ];
 
 const Footer = () => (
@@ -49,10 +49,10 @@ const Footer = () => (
           </div>
 
           <div className="flex gap-3 mt-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors">
+            <a href="https://www.instagram.com/voetrippin7/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors">
               <Instagram className="w-5 h-5 text-primary" />
             </a>
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors">
+            <a href="https://share.google/APccsNPcfSBTYlGmc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors">
               <MapPin className="w-5 h-5 text-primary" />
             </a>
           </div>
