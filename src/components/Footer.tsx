@@ -1,9 +1,9 @@
 import { MessageCircle, Instagram, MapPin } from "lucide-react";
 
 const WHATSAPP_NUMBERS = [
-  { label: "Atendimento 1", number: "5500000000001" },
-  { label: "Atendimento 2", number: "5500000000002" },
-  { label: "Atendimento 3", number: "5500000000003" },
+  { label: "Atendimento 1", number: "5527995907759" },
+  { label: "Atendimento 2", number: "5527999257759" },
+  { label: "Atendimento 3", number: "5527997447759" },
 ];
 
 const Footer = () => (
