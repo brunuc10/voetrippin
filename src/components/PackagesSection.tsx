@@ -7,10 +7,7 @@ const PACKAGES = [
     badge: "Mais Vendido",
     name: "Caribe All-Inclusive",
     destination: "Cancún · 7 noites",
-    price: "4.890",
-    originalPrice: "6.200",
     perks: ["Voo ida e volta", "Resort 5 estrelas all-inclusive", "Transfers privados", "Passeios inclusos"],
-    installments: "12x de R$ 407,50",
     color: "primary" as const,
   },
   {
@@ -18,10 +15,7 @@ const PACKAGES = [
     badge: "Premium",
     name: "Europa Clássica",
     destination: "Paris + Roma · 12 noites",
-    price: "12.990",
-    originalPrice: "15.800",
     perks: ["Voos diretos", "Hotéis 4-5 estrelas", "City tours guiados", "Seguro viagem premium"],
-    installments: "12x de R$ 1.082,50",
     color: "accent" as const,
   },
   {
@@ -29,10 +23,7 @@ const PACKAGES = [
     badge: "Exclusivo",
     name: "Maldivas Luxury",
     destination: "Maldivas · 6 noites",
-    price: "18.500",
-    originalPrice: "22.000",
     perks: ["Overwater villa", "Café da manhã flutuante", "Spa & mergulho", "Transfer de seaplane"],
-    installments: "12x de R$ 1.541,67",
     color: "primary" as const,
   },
   {
@@ -40,10 +31,7 @@ const PACKAGES = [
     badge: "Imperdível",
     name: "Nordeste Premium",
     destination: "Noronha + Jeri · 10 noites",
-    price: "7.490",
-    originalPrice: "9.200",
     perks: ["Voos inclusos", "Pousadas charmosas", "Passeios de barco", "Guia local exclusivo"],
-    installments: "12x de R$ 624,17",
     color: "accent" as const,
   },
 ];
@@ -76,7 +64,6 @@ const PackagesSection = () => {
                     : "glass-card-dark hover:border-accent/30"
                 }`}
               >
-                {/* Badge */}
                 <span className={`inline-block self-start text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 ${
                   isAccent ? "bg-white/20 text-white" : "bg-accent/15 text-accent"
                 }`}>
@@ -89,20 +76,15 @@ const PackagesSection = () => {
                   <pkg.icon className={`w-6 h-6 ${isAccent ? "text-white" : "text-accent"}`} />
                 </div>
 
-                <h3 className={`font-display text-xl font-bold mb-1 ${isAccent ? "text-white" : "text-white"}`}>{pkg.name}</h3>
+                <h3 className="font-display text-xl font-bold mb-1 text-white">{pkg.name}</h3>
                 <p className={`text-sm mb-5 ${isAccent ? "text-white/80" : "text-white/50"}`}>{pkg.destination}</p>
 
-                {/* Price */}
+                {/* Promotional label */}
                 <div className="mb-4">
-                  <span className={`text-sm line-through ${isAccent ? "text-white/50" : "text-white/30"}`}>R$ {pkg.originalPrice}</span>
-                  <div className="flex items-baseline gap-1">
-                    <span className={`text-sm ${isAccent ? "text-white/80" : "text-white/60"}`}>R$</span>
-                    <span className={`text-4xl font-bold ${isAccent ? "text-white" : "text-accent"}`}>{pkg.price}</span>
-                  </div>
-                  <p className={`text-xs mt-1 ${isAccent ? "text-white/70" : "text-white/40"}`}>ou {pkg.installments} sem juros</p>
+                  <span className={`text-xs font-semibold uppercase tracking-wider ${isAccent ? "text-white/70" : "text-accent/80"}`}>Valor Promocional</span>
+                  <p className={`text-lg font-bold mt-1 ${isAccent ? "text-white" : "text-accent"}`}>Consulte pelo WhatsApp</p>
                 </div>
 
-                {/* Perks */}
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.perks.map((perk) => (
                     <li key={perk} className={`flex items-center gap-2 text-sm ${isAccent ? "text-white/90" : "text-white/60"}`}>
@@ -129,11 +111,10 @@ const PackagesSection = () => {
           })}
         </div>
 
-        {/* Payment conditions */}
         <div className="mt-12 text-center glass-card-dark rounded-2xl p-8">
           <p className="text-white/80 text-sm sm:text-base">
             💳 <span className="font-semibold text-accent">Parcele em até 12x sem juros</span> no cartão de crédito · 
-            Pix com <span className="font-semibold text-accent">5% de desconto</span> · 
+            Pix com <span className="font-semibold text-accent">desconto especial</span> · 
             Aceitamos todos os cartões · Entrada facilitada
           </p>
         </div>
