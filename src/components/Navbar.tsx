@@ -3,11 +3,12 @@ import logoTrippin from "@/assets/logo-trippin.png";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Início", href: "#hero" },
-  { label: "Diferenciais", href: "#diferenciais" },
+  { label: "Home", href: "#hero" },
+  { label: "Por que nós", href: "#diferenciais" },
   { label: "Destinos", href: "#destinos" },
+  { label: "Pacotes", href: "#pacotes" },
   { label: "Depoimentos", href: "#depoimentos" },
-  { label: "Contato", href: "#contato" },
+  { label: "Orçamento", href: "#contato" },
 ];
 
 const Navbar = () => {
