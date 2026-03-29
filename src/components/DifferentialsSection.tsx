@@ -13,12 +13,12 @@ const DifferentialsSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="diferenciais" className="section-padding bg-gradient-dark">
+    <section id="diferenciais" className="section-padding bg-[hsl(222,47%,15%)]">
       <div className="container mx-auto">
         <div ref={ref} className="text-center mb-16 animate-on-scroll">
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-3">Por que nos escolher</p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Nossos <span className="text-gradient-gold">Diferenciais</span>
+          <p className="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-3">Por que nos escolher</p>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Nossos <span className="text-gradient-orange">Diferenciais</span>
           </h2>
         </div>
 
@@ -29,13 +29,13 @@ const DifferentialsSection = () => {
               <div
                 key={item.title}
                 ref={cardRef}
-                className="animate-on-scroll glass-card rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-500 group"
+                className="animate-on-scroll glass-card-dark rounded-2xl p-6 text-center hover:border-accent/30 transition-all duration-500 group"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                  <item.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-display text-lg font-semibold mb-2 text-white">{item.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
               </div>
             );
           })}
