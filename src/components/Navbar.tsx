@@ -27,9 +27,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4">
-        <a href="#hero" className="flex items-center gap-3">
-          <img src={logoTrippin} alt="VoeTrippin Logo" className="w-12 h-12 object-contain" />
-          <span className={`font-display text-2xl font-bold ${scrolled ? "text-gradient-blue" : "text-white"}`}>Voe Trippin</span>
+        <a href="#hero">
+          <img src={logoTrippin} alt="VoeTrippin Logo" className="w-16 h-16 object-contain" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
