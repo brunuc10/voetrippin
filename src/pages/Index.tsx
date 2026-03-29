@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
 import DestinationsSection from "@/components/DestinationsSection";
+import PackagesSection from "@/components/PackagesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import CTASection from "@/components/CTASection";
