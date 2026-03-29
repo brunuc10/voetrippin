@@ -30,7 +30,6 @@ const Navbar = () => {
         <a href="#hero">
           <img src={logoTrippin} alt="VoeTrippin Logo" className="w-16 h-16 object-contain" />
         </a>
-        </a>
 
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
