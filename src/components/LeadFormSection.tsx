@@ -8,6 +8,7 @@ const LeadFormSection = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -17,8 +18,6 @@ const LeadFormSection = () => {
     setErrors(e);
     return Object.keys(e).length === 0;
   };
-
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +43,7 @@ const LeadFormSection = () => {
       <section id="contato" className="section-padding">
         <div className="container mx-auto max-w-xl text-center">
           <div className="glass-card rounded-2xl p-12">
-            <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
+            <CheckCircle className="w-16 h-16 text-accent mx-auto mb-4" />
             <h3 className="font-display text-2xl font-bold mb-2">Obrigado!</h3>
             <p className="text-muted-foreground">Em breve um especialista entrará em contato com você.</p>
           </div>
@@ -57,9 +56,9 @@ const LeadFormSection = () => {
     <section id="contato" className="section-padding">
       <div className="container mx-auto max-w-xl">
         <div ref={ref} className="text-center mb-12 animate-on-scroll">
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-3">Solicite seu orçamento</p>
+          <p className="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-3">Solicite seu orçamento</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold">
-            Comece sua <span className="text-gradient-gold">próxima aventura</span>
+            Comece sua <span className="text-gradient-blue">próxima aventura</span>
           </h2>
         </div>
 
@@ -73,7 +72,7 @@ const LeadFormSection = () => {
                 type={field === "email" ? "email" : "text"}
                 value={form[field]}
                 onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                className="w-full bg-white border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all shadow-sm"
                 placeholder={field === "name" ? "Seu nome" : field === "email" ? "seu@email.com" : "(00) 00000-0000"}
               />
               {errors[field] && <p className="text-destructive text-xs mt-1">{errors[field]}</p>}
@@ -83,7 +82,7 @@ const LeadFormSection = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60"
+            className="w-full bg-gradient-blue text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
           >
             <Send className="w-5 h-5" />
             {loading ? "Enviando..." : "Quero meu orçamento"}

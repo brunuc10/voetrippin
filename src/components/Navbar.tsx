@@ -22,21 +22,22 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/95 backdrop-blur-lg shadow-lg shadow-background/50" : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur-lg shadow-lg shadow-black/5" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between py-4">
-        <a href="#hero" className="font-display text-2xl font-bold text-gradient-gold">
+        <a href="#hero" className={`font-display text-2xl font-bold ${scrolled ? "text-gradient-blue" : "text-white"}`}>
           VoeTrippin
         </a>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? "text-foreground/70 hover:text-primary" : "text-white/80 hover:text-white"
+              }`}
             >
               {l.label}
             </a>
@@ -45,21 +46,19 @@ const Navbar = () => {
             href="https://wa.me/5527995907759"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-gold text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="bg-gradient-orange text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-accent/20 transition-all duration-300"
           >
             Fale Conosco
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button onClick={() => setOpen(!open)} className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background/98 backdrop-blur-xl border-t border-border animate-fade-in">
+        <div className="md:hidden bg-white/98 backdrop-blur-xl border-t border-border animate-fade-in">
           <div className="container mx-auto py-6 flex flex-col gap-4">
             {NAV_LINKS.map((l) => (
               <a
@@ -75,7 +74,7 @@ const Navbar = () => {
               href="https://wa.me/5527995907759"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-gold text-primary-foreground px-5 py-3 rounded-lg text-sm font-semibold text-center hover:opacity-90 transition-opacity"
+              className="bg-gradient-orange text-white px-5 py-3 rounded-xl text-sm font-semibold text-center hover:shadow-lg transition-all"
             >
               Fale Conosco
             </a>
