@@ -1,22 +1,20 @@
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import FloatingCTA from "@/components/FloatingCTA";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { MapPin, TrendingDown, Lightbulb } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
-const baratas = [
-  { destino: "São Thomé das Letras (MG)", preco: "A partir de R$ 380", desc: "Pousada + transporte para 3 dias." },
-  { destino: "Praia do Rosa (SC) - baixa temporada", preco: "A partir de R$ 450", desc: "Hospedagem simples + ônibus." },
-  { destino: "Chapada dos Veadeiros (GO)", preco: "A partir de R$ 490", desc: "Camping + trilhas guiadas." },
-];
-
-const destinosMes = [
-  { destino: "Buenos Aires", preco: "A partir de R$ 1.290", desc: "Pacote 4 noites com aéreo." },
-  { destino: "Recife + Porto de Galinhas", preco: "A partir de R$ 980", desc: "Aéreo + hotel 3 noites." },
-  { destino: "Foz do Iguaçu", preco: "A partir de R$ 850", desc: "Aéreo + hotel 4 noites." },
-  { destino: "Santiago do Chile", preco: "A partir de R$ 1.690", desc: "Aéreo + hotel 5 noites." },
-];
+type Destination = {
+  id: string;
+  category: "under_500" | "month";
+  destination: string;
+  price: string;
+  description: string;
+};
 
 const dicas = [
   "Viaje na baixa temporada e em dias de semana.",
