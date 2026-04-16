@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      cheap_destinations: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          destination: string
+          display_order: number
+          id: string
+          is_active: boolean
+          price: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          destination: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          price: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          destination?: string
+          display_order?: number
+          id?: string
+          is_active?: boolean
+          price?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           created_at: string
