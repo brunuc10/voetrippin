@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, TrendingDown, Lightbulb } from "lucide-react";
 
 const baratas = [
-  { destino: "São Thomé das Letras (MG)", preco: "R$ 380", desc: "Pousada + transporte para 3 dias." },
-  { destino: "Praia do Rosa (SC) - baixa temporada", preco: "R$ 450", desc: "Hospedagem simples + ônibus." },
-  { destino: "Chapada dos Veadeiros (GO)", preco: "R$ 490", desc: "Camping + trilhas guiadas." },
+  { destino: "São Thomé das Letras (MG)", preco: "A partir de R$ 380", desc: "Pousada + transporte para 3 dias." },
+  { destino: "Praia do Rosa (SC) - baixa temporada", preco: "A partir de R$ 450", desc: "Hospedagem simples + ônibus." },
+  { destino: "Chapada dos Veadeiros (GO)", preco: "A partir de R$ 490", desc: "Camping + trilhas guiadas." },
 ];
 
 const destinosMes = [
