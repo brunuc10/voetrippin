@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logoTrippin from "@/assets/logo-trippin.png";
 import { Menu, X } from "lucide-react";
 
@@ -9,6 +10,12 @@ const NAV_LINKS = [
   { label: "Pacotes", href: "#pacotes" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Orçamento", href: "#contato" },
+];
+
+const NEW_ROUTE_LINKS = [
+  { label: "Começar do Zero", to: "/comecar" },
+  { label: "Viagens Baratas", to: "/viagens-baratas" },
+  { label: "Planejamento", to: "/planejamento" },
 ];
 
 const Navbar = () => {
