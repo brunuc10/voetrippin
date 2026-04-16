@@ -22,6 +22,7 @@ export type Database = {
           destination: string
           display_order: number
           id: string
+          image_url: string | null
           is_active: boolean
           price: string
           updated_at: string
@@ -33,6 +34,7 @@ export type Database = {
           destination: string
           display_order?: number
           id?: string
+          image_url?: string | null
           is_active?: boolean
           price: string
           updated_at?: string
@@ -44,6 +46,7 @@ export type Database = {
           destination?: string
           display_order?: number
           id?: string
+          image_url?: string | null
           is_active?: boolean
           price?: string
           updated_at?: string
