@@ -8,6 +8,7 @@ import LeadFormSection from "@/components/LeadFormSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => (
   <>
@@ -21,6 +22,7 @@ const Index = () => (
     <CTASection />
     <Footer />
     <WhatsAppFloat />
+    <FloatingCTA />
   </>
 );
 

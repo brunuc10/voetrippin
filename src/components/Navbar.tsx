@@ -39,7 +39,7 @@ const Navbar = () => {
           <img src={logoTrippin} alt="VoeTrippin Logo" className="w-16 h-16 object-contain" />
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
@@ -50,6 +50,17 @@ const Navbar = () => {
             >
               {l.label}
             </a>
+          ))}
+          {NEW_ROUTE_LINKS.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? "text-foreground/70 hover:text-primary" : "text-white/80 hover:text-white"
+              }`}
+            >
+              {l.label}
+            </Link>
           ))}
           <a
             href="https://wa.me/5527995907759"
@@ -78,6 +89,16 @@ const Navbar = () => {
               >
                 {l.label}
               </a>
+            ))}
+            {NEW_ROUTE_LINKS.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                className="text-foreground/80 hover:text-primary transition-colors py-2"
+              >
+                {l.label}
+              </Link>
             ))}
             <a
               href="https://wa.me/5527995907759"
