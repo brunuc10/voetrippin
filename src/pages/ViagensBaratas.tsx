@@ -25,6 +25,33 @@ const dicas = [
 ];
 
 const ViagensBaratas = () => {
+  const [destinations, setDestinations] = useState<Destination[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      const { data, error } = await supabase
+        .from("cheap_destinations")
+        .select("id, category, destination, price, description")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+      if (!error && data) setDestinations(data as Destination[]);
+      setLoading(false);
+    };
+    load();
+  }, []);
+
+  const baratas = destinations.filter((d) => d.category === "under_500");
+  const destinosMes = destinations.filter((d) => d.category === "month");
+
+  const renderSkeletons = (count: number, cols: string) => (
+    <div className={`grid ${cols} gap-6`}>
+      {Array.from({ length: count }).map((_, i) => (
+        <Skeleton key={i} className="h-40 rounded-lg" />
+      ))}
+    </div>
+  );
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -44,17 +71,23 @@ const ViagensBaratas = () => {
               <TrendingDown className="w-7 h-7 text-accent" />
               <h2 className="font-display text-3xl font-semibold">Viagens por menos de R$ 500</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {baratas.map((b) => (
-                <Card key={b.destino} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <h3 className="font-display text-xl font-semibold mb-2">{b.destino}</h3>
-                    <p className="text-2xl font-bold text-accent mb-2">{b.preco}</p>
-                    <p className="text-foreground/70 text-sm">{b.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            {loading ? (
+              renderSkeletons(3, "md:grid-cols-3")
+            ) : baratas.length === 0 ? (
+              <p className="text-foreground/60">Nenhum destino disponível no momento.</p>
+            ) : (
+              <div className="grid md:grid-cols-3 gap-6">
+                {baratas.map((b) => (
+                  <Card key={b.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <h3 className="font-display text-xl font-semibold mb-2">{b.destination}</h3>
+                      <p className="text-2xl font-bold text-accent mb-2">{b.price}</p>
+                      <p className="text-foreground/70 text-sm">{b.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </section>
 
           <section className="mb-16">
@@ -62,17 +95,23 @@ const ViagensBaratas = () => {
               <MapPin className="w-7 h-7 text-accent" />
               <h2 className="font-display text-3xl font-semibold">Destinos baratos do mês</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {destinosMes.map((d) => (
-                <Card key={d.destino} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <h3 className="font-display text-lg font-semibold mb-2">{d.destino}</h3>
-                    <p className="text-base font-bold text-accent mb-2">{d.preco}</p>
-                    <p className="text-foreground/70 text-sm">{d.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            {loading ? (
+              renderSkeletons(4, "md:grid-cols-2 lg:grid-cols-4")
+            ) : destinosMes.length === 0 ? (
+              <p className="text-foreground/60">Nenhum destino disponível no momento.</p>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {destinosMes.map((d) => (
+                  <Card key={d.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <h3 className="font-display text-lg font-semibold mb-2">{d.destination}</h3>
+                      <p className="text-base font-bold text-accent mb-2">{d.price}</p>
+                      <p className="text-foreground/70 text-sm">{d.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </section>
 
           <section>
